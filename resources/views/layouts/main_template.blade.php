@@ -12,7 +12,8 @@
 <body>
     @include('includes.header')
     <main>
-        @yield('comics-table')
+       
+        @include('includes.card')
     </main>
 </body>
 

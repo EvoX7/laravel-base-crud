@@ -10848,3 +10848,11 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+.card {
+  width: 25rem;
+}
+
+img {
+  width: 5rem;
+  height: 25rem;
+}
