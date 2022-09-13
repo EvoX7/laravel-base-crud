@@ -5,9 +5,9 @@
 
 <div class="container mt-5">
     <div class="row">
-      <h1 class="mt-3 mb-5 text-center">Greatest Comics</h1>
+      <h1 class="mt-3 mb-5 text-center table-title">Greatest Comics</h1>
   
-      <table class="table table-info">
+      <table class="table table-warning">
         <thead>
           <th scope="col">Id</th>
           <th scope="col">Title</th>
@@ -24,7 +24,7 @@
             <td>{{ $comic->series }}</td>
             <td>{{ $comic->sale_date }}</td>
             <td>{{ $comic->type }}</td>
-            <td>{{ $comic->price }}</td>
+            <td>$ {{ $comic->price }}</td>
           </tr>
           @empty
           <h3 class="fs-1 text-center mt-5">No comics available</h3>

@@ -2,3 +2,14 @@
 
 @import "./partials/_header";
 @import "./partials/_card";
+
+
+body {
+    background-color: rgb(49, 49, 61);
+}
+
+.table-title {
+    font-size: 5em;
+    color: #f5f410;
+    text-shadow: 5px 5px #000000;
+}

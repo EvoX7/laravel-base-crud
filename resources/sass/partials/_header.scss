@@ -1,0 +1,23 @@
+.logo-img {
+    width: 7rem;
+    height: 5rem;
+    transform: skew(-10deg);
+}
+
+nav div a:hover {
+    color: #f5f410!important;
+
+}
+
+a:hover {
+    color: #000000!important;
+}
+
+.btn-outline {
+    background-color: #f5f410;
+}
+
+.btn-outline:hover {
+    outline-color: #f5f410;
+    color: #f5f410;
+}
