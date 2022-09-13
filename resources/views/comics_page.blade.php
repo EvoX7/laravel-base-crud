@@ -20,7 +20,7 @@
           @forelse ($comics as $comic)
           <tr>
             <td>{{ $comic->id }}</td>
-            <td class="fw-bold">{{ $comic->title }}</td>
+            <td class="fw-bold"> <a href="{{ route('comicsDetails', $comic->id) }}"> {{ $comic->title }}</a></td>
             <td>{{ $comic->series }}</td>
             <td>{{ $comic->sale_date }}</td>
             <td>{{ $comic->type }}</td>
