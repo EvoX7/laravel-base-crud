@@ -8,11 +8,11 @@ class ComicSeeder extends Seeder
     /**
      * Run the database seeds.
      *
-     * @return void
+    * @return void
      */
     public function run()
     { 
-        
+
         $comics = [
             [ 
                 "title" => "Action Comics #1000: The Deluxe Edition",
@@ -128,12 +128,12 @@ class ComicSeeder extends Seeder
 
 foreach ($comics as $comic) {
     $NewComic = new Comic();
-    $NewComic ->title = $comics ['title'];
-    $NewComic ->description = $comics ['description'];
-    $NewComic ->thumb = $comics['thumb'];
-    $NewComic ->price = $comics ['price'];
-    $NewComic ->series = $comics ['series'];
-    $NewComic ->sale_date = $comics ['sale_date'];
-    $NewComic ->type = $comics ['type'];
+    $NewComic ->title = $comic ['title'];
+    $NewComic ->description = $comic ['description'];
+    $NewComic ->thumb = $comic['thumb'];
+    $NewComic ->price = $comic ['price'];
+    $NewComic ->series = $comic ['series'];
+    $NewComic ->sale_date = $comic ['sale_date'];
+    $NewComic ->type = $comic ['type'];
     $NewComic ->save();
 }

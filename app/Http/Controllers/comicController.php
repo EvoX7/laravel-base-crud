@@ -13,3 +13,4 @@ class comicController extends Controller
         return view('index', compact('comics'));
     }
 }
+
