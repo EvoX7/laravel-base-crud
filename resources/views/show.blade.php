@@ -5,7 +5,7 @@
     <div class="container d-flex justify-content-center mt-5">
 <div class="card text-center">
     <div class="card-header">
-      <img class="w-75 rounded-4 p-2" src="{{ $comic->thumb }}" alt="{{ $comic->title }}">
+      <img class="w-50 rounded-4 p-2" src="{{ $comic->thumb }}" alt="{{ $comic->title }}">
     </div>
     <div class="card-body">
       <h5 class="card-title fw-bold">{{ $comic->title }}</h5>

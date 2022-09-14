@@ -13,10 +13,10 @@
                     <a class="nav-link fw-bold text-white" aria-current="page" href="{{ route('homepage') }}">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link fw-bold text-white" href="{{ route('comics.index') }}">Comics</a>
+                    <a class="nav-link fw-bold text-white" href="{{ route('comics.index')}}">Comics</a>
                 </li>
-                <li class="nav-item ms-5">
-                  <a class="nav-link fw-bold text-white" href="">Create</a>
+                <li class="nav-item ms-1">
+                  <a class="nav-link fw-bold text-white" href="{{ route('comics.create')}}">Create new entry</a>
               </li>
             </ul>
             
