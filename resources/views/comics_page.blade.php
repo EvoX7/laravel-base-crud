@@ -7,7 +7,7 @@
     <div class="row">
       <h1 class="mt-3 mb-5 text-center table-title">Greatest Comics</h1>
   
-      <table class="table table-warning">
+      <table class="table table-secondary">
         <thead>
           <th scope="col">Id</th>
           <th scope="col">Title</th>
@@ -20,7 +20,7 @@
           @forelse ($comics as $comic)
           <tr>
             <td>{{ $comic->id }}</td>
-            <td class="fw-bold"> <a href="{{ route('comicsDetails', $comic->id) }}"> {{ $comic->title }}</a></td>
+            <td class="fw-bold"> <a href="{{ route('comics.show', $comic->id) }}"> {{ $comic->title }}</a></td>
             <td>{{ $comic->series }}</td>
             <td>{{ $comic->sale_date }}</td>
             <td>{{ $comic->type }}</td>
