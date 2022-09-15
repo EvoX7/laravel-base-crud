@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col-6 offset-3">
                 <h1 class="mt-3 mb-3 text-center table-title">Edit</h1>
-                <form class="text-white" action="{{ route('comics.update', $comic->slug) }}" method="POST">
+                <form class="text-white" action="{{ route('comics.update', $comic->id) }}" method="POST">
                     @csrf
                     @method('PUT')
 

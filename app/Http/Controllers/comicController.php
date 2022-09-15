@@ -50,10 +50,9 @@ class ComicController extends Controller
         $comic->sale_date = $uData['sale_date'];
         $comic->description = $uData['description'];
 
-        $comic->slug = Str::slug($comic->title, '-', + 1);
         $comic->save();
 
-        return redirect()->route('comics.show', ['comic' => $comic->slug]);
+        return redirect()->route('comics.show', compact('comic'));
 
     }
 
@@ -63,10 +62,10 @@ class ComicController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($slug)
+    public function show($id)
 
     {
-        $comic = Comic::where('slug', $slug)->first();
+        $comic = Comic::findOrfail($id);
         return view('show', compact('comic'));
         
         
@@ -78,10 +77,10 @@ class ComicController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($slug)
+    public function edit($id)
     {
-        $comic = Comic::where('slug', $slug)->first();
-        return view ('edit', ['comic' => $comic]);
+        $comic = Comic::findOrfail($id);
+        return view ('edit', compact('comic'));
     }
 
     /**
@@ -91,12 +90,9 @@ class ComicController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $slug)
+    public function update(Request $request, $id)
     {
         $uData = $request->all();
-
-        $comic = Comic::where('slug', $slug)->first();
-
 
 
         $comic = new Comic();
@@ -108,10 +104,9 @@ class ComicController extends Controller
         $comic->sale_date = $uData['sale_date'];
         $comic->description = $uData['description'];
 
-        $comic->slug = Str::slug($comic->title, '-', + 1);
         $comic->save();
 
-        return redirect()->route('comics.show', ['comic' => $comic->slug]);
+        return redirect()->route('comics.show', compact('comic'));
     }
 
     /**
@@ -121,7 +116,15 @@ class ComicController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
-    {
-        //
+    
+    { 
+
+
+        $comic = Comic::find($id);
+
+        $comic->delete($id);
+
+        return redirect()->route('comics.index');
+
     }
 }
