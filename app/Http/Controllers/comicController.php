@@ -49,10 +49,11 @@ class ComicController extends Controller
         $comic->price = $uData['price'];
         $comic->sale_date = $uData['sale_date'];
         $comic->description = $uData['description'];
+        $comic->slug = Str::slug($comic->title, '-');
 
         $comic->save();
 
-        return redirect()->route('comics.show', compact('comic'));
+        return redirect()->route('comics.index')->with('created', $comic->title);
     }
 
     /**
@@ -100,10 +101,11 @@ class ComicController extends Controller
         $comic->price = $uData['price'];
         $comic->sale_date = $uData['sale_date'];
         $comic->description = $uData['description'];
+        $comic->slug = Str::slug($comic->title, '-');
 
         $comic->save();
 
-        return redirect()->route('comics.show', compact('comic'));
+        return redirect()->route('comics.show', compact('comic'))->with('edited', $comic->title);
     }
 
     /**
@@ -115,11 +117,10 @@ class ComicController extends Controller
     public function destroy($id)
 
     {
-
         $comic = Comic::find($id);
 
         $comic->delete($id);
 
-        return redirect()->route('comics.index');
+        return redirect()->route('comics.index')->with('delete', $comic->title);
     }
 }

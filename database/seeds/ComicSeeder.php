@@ -134,7 +134,8 @@ class ComicSeeder extends Seeder
             $NewComic->series = $comic['series'];
             $NewComic->sale_date = $comic['sale_date'];
             $NewComic->type = $comic['type'];
-            $NewComic->slug = Str::slug($NewComic->title, '-', + 1);
+
+            $NewComic->slug = Str::slug($NewComic->title, '-');
             $NewComic->save();
         }
     }

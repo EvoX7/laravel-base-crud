@@ -4,7 +4,18 @@
 @section('main_content')
     <div class="container mt-5">
         <div class="row">
+
             <h1 class="mt-3 mb-5 text-center table-title">Greatest Comics</h1>
+
+            @if (session('delete'))
+                <div class="alert alert-danger">
+                    {{ session('delete') }} has been removed successfully.
+                </div>
+            @elseif (session('created'))
+                <div class="alert alert-success">
+                    {{ session('created') }} has been created successfully.
+                </div>
+            @endif
 
             <table class="table table-secondary table-striped">
                 <thead>
