@@ -1,6 +1,7 @@
 <?php
 
 use App\Comic;
+use Illuminate\Support\Str;
 use Illuminate\Database\Seeder;
 
 class ComicSeeder extends Seeder
@@ -133,6 +134,7 @@ class ComicSeeder extends Seeder
             $NewComic->series = $comic['series'];
             $NewComic->sale_date = $comic['sale_date'];
             $NewComic->type = $comic['type'];
+            $NewComic->slug = Str::slug($NewComic->title, '-', + 1);
             $NewComic->save();
         }
     }

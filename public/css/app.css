@@ -10885,3 +10885,7 @@ body {
   color: #f5f410;
   text-shadow: 5px 5px #000000;
 }
+
+.active {
+  color: #f5f410;
+}

@@ -10,13 +10,13 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link fw-bold text-white" aria-current="page" href="{{ route('homepage') }}">Home</a>
+                    <a class="nav-link fw-bold text-white {{ request()->routeIs('homepage') ? 'active' : '' }}" href="{{ route('homepage') }}">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link fw-bold text-white" href="{{ route('comics.index')}}">Comics</a>
+                    <a class="nav-link fw-bold text-white  {{ request()->routeIs('comics_page') ? 'active' : '' }}" href="{{ route('comics.index')}}">Comics</a>
                 </li>
                 <li class="nav-item ms-1">
-                  <a class="nav-link fw-bold text-white" href="{{ route('comics.create')}}">Create new entry</a>
+                  <a class="nav-link fw-bold text-white  {{ request()->routeIs('create') ? 'active' : '' }}" href="{{ route('comics.create')}}">Create a new entry</a>
               </li>
             </ul>
             

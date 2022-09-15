@@ -15,6 +15,7 @@ class CreateComicsTable extends Migration
     {
         Schema::create('comics', function (Blueprint $table) {
             $table->id();
+            $table->string('slug')->unique();
             $table->string('title', 50);
             $table->longText('description');
             $table->text('thumb');

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Comic;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 
 class ComicController extends Controller
@@ -25,6 +26,7 @@ class ComicController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
+
     {
         return view('create');
     }
@@ -47,6 +49,8 @@ class ComicController extends Controller
         $comic->price = $insertComics['price'];
         $comic->sale_date = $insertComics['sale_date'];
         $comic->description = $insertComics['description'];
+
+        $comic->slug = Str::slug($comic->title, '-', + 1);
         $comic->save();
 
         return redirect()->route('comics.show', compact('comic'));
@@ -59,10 +63,10 @@ class ComicController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($slug)
 
     {
-        $comic = Comic::findOrfail($id);
+        $comic = Comic::where('slug', $slug)->first();
         return view('show', compact('comic'));
         
         
