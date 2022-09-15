@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-black">
     <div class="container">
-        <a href="{{ route('homepage') }}"><img class="me-5 logo-img" src="../assets/img/comics_logo.png"
+        <a href="{{ route('homepage') }}"><img class="me-5 logo-img" src="{{ asset('assets/img/comics_logo.png') }}"
                 alt="comics_logo"></a>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"

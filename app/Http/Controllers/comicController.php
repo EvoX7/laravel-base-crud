@@ -39,21 +39,21 @@ class ComicController extends Controller
      */
     public function store(Request $request)
     {
-        $insertComics = $request->all();
+        $uData = $request->all();
 
         $comic = new Comic();
-        $comic->title = $insertComics['title'];
-        $comic->thumb = $insertComics['image_url'];
-        $comic->series = $insertComics['series'];
-        $comic->type = $insertComics['type'];
-        $comic->price = $insertComics['price'];
-        $comic->sale_date = $insertComics['sale_date'];
-        $comic->description = $insertComics['description'];
+        $comic->title = $uData['title'];
+        $comic->thumb = $uData['image_url'];
+        $comic->series = $uData['series'];
+        $comic->type = $uData['type'];
+        $comic->price = $uData['price'];
+        $comic->sale_date = $uData['sale_date'];
+        $comic->description = $uData['description'];
 
         $comic->slug = Str::slug($comic->title, '-', + 1);
         $comic->save();
 
-        return redirect()->route('comics.show', compact('comic'));
+        return redirect()->route('comics.show', ['comic' => $comic->slug]);
 
     }
 
@@ -78,9 +78,10 @@ class ComicController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($slug)
     {
-        //
+        $comic = Comic::where('slug', $slug)->first();
+        return view ('edit', ['comic' => $comic]);
     }
 
     /**
@@ -90,9 +91,27 @@ class ComicController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $slug)
     {
-        //
+        $uData = $request->all();
+
+        $comic = Comic::where('slug', $slug)->first();
+
+
+
+        $comic = new Comic();
+        $comic->title = $uData['title'];
+        $comic->thumb = $uData['image_url'];
+        $comic->series = $uData['series'];
+        $comic->type = $uData['type'];
+        $comic->price = $uData['price'];
+        $comic->sale_date = $uData['sale_date'];
+        $comic->description = $uData['description'];
+
+        $comic->slug = Str::slug($comic->title, '-', + 1);
+        $comic->save();
+
+        return redirect()->route('comics.show', ['comic' => $comic->slug]);
     }
 
     /**

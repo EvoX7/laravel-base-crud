@@ -5,7 +5,7 @@
     <div class="container mb-4 mt-2">
         <div class="row">
             <div class="col-6 offset-3">
-              <h1 class="mt-3 mb-3 text-center table-title">Data form</h1>
+              <h1 class="mt-3 mb-3 text-center table-title">New entry</h1>
                 <form class="text-white" action="{{ route('comics.store') }}" method="POST">
                     @csrf
 
